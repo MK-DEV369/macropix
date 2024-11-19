@@ -1,13 +1,11 @@
 import MobileNav from "@/components/ui/mobile-nav";
 
-import Sidebar from "@/components/ui/sidebar";
-
 export default function Dashboard() {
   return (
-    <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-      <Sidebar />
-      <div className="p-5">
-        <MobileNav />
+    <div className="grid min-h-screen w-full p-5">
+      
+      <div>
+        <h1 className="text-2xl font-bold">Welcome to the Dashboard</h1>
       </div>
     </div>
   );

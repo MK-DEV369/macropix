@@ -1,31 +1,56 @@
-import React from 'react';
-
-const team = [
-  { name: 'Morya', role: 'Project Manager', description: 'Leads the team and ensures project delivery on time.' },
-  { name: 'Ajay', role: 'Frontend Developer', description: 'Specializes in building user interfaces and optimizing performance.' },
-  { name: 'Srikanth', role: 'Backend Developer', description: 'Handles server-side logic and database management.' },
-  { name: 'Nikhil', role: 'UI/UX Designer', description: 'Creates intuitive and visually appealing designs.' },
-  { name: 'Nihal', role: 'DevOps Engineer', description: 'Maintains infrastructure and deployment pipelines.' },
-];
-
 export default function AboutPage() {
+  const teamMembers = [
+    {
+      name: "L Moryakantha",
+      usn: "RVCE24BAI401",
+      branch: "AI",
+    },
+    {
+      name: "Nihal Soni",
+      usn: "1RV23CS152",
+      branch: "CS",
+    },
+    {
+      name: "Nikhil Parashuram Bakale",
+      usn: "1RV23CS154",
+      branch: "CS",
+    },
+    {
+      name: "Srikanth R",
+      usn: "1RV23IS120",
+      branch: "IS",
+    },
+    {
+      name: "Yogendra Ajay Reddy Mareddy",
+      usn: "1RV23IS143",
+      branch: "IS",
+    },
+  ];
+
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">About Us</h1>
-      <p className="mb-6 text-muted-foreground">
-        We are a passionate team dedicated to delivering exceptional software solutions.
+    <div>
+      <p className="text-secondary-foreground mb-4">
+        Meet our team of dedicated developers and problem-solvers!
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {team.map((member, index) => (
-          <div
-            key={index}
-            className="rounded-lg border p-4 shadow-sm hover:shadow-md transition"
-          >
-            <h2 className="text-xl font-semibold">{member.name}</h2>
-            <p className="text-sm text-muted-foreground">{member.role}</p>
-            <p className="mt-2">{member.description}</p>
-          </div>
-        ))}
+      <div className="bg-white shadow-md rounded-lg p-4">
+        <table className="w-full border-collapse border border-gray-300 bg-white">
+          <thead className="bg-primary text-primary-foreground">
+            <tr>
+              <th className="border border-gray-300 px-4 py-2">Name</th>
+              <th className="border border-gray-300 px-4 py-2">USN</th>
+              <th className="border border-gray-300 px-4 py-2">Branch</th>
+            </tr>
+          </thead>
+          <tbody>
+            {teamMembers.map((member, index) => (
+              <tr key={index} className="hover:bg-gray-100">
+                <td className="border border-gray-300 px-4 py-2">{member.name}</td>
+                <td className="border border-gray-300 px-4 py-2">{member.usn}</td>
+                <td className="border border-gray-300 px-4 py-2">{member.branch}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

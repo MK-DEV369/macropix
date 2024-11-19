@@ -2,23 +2,16 @@ import React from "react";
 import { Sheet, SheetContent, SheetTrigger } from "./sheet";
 import { Button } from "./button";
 import {
-  Home,
-  LineChart,
   Menu,
-  Package,
-  Package2,
-  ShoppingCart,
-  Users,
+  SquareActivity,
+  SquareStack,
+  DiamondPlus,
+  ChartNetwork,
+  UserSquare2,
 } from "lucide-react";
 import Link from "next/link";
-import { Badge } from "./badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "./card";
+import { ModeToggle } from "@/components/ui/mode-toggle";
+import { UserButton } from "@clerk/nextjs";
 
 export default function MobileNav() {
   return (
@@ -29,69 +22,49 @@ export default function MobileNav() {
           <span className="sr-only">Toggle navigation menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="flex flex-col">
-        <nav className="grid gap-2 text-lg font-medium">
+
+      <SheetContent side="left" className="flex flex-col gap-4 px-4 pb-4">
+        <div className="flex items-center gap-2 border-b pb-3">
+          <SquareActivity className="h-6 w-6" />
+          <Link href="/" className="text-lg font-semibold">
+            Macropix
+          </Link>
+        </div>
+
+        <nav className="flex flex-col gap-2 text-base font-medium">
           <Link
-            href="#"
-            className="flex items-center gap-2 text-lg font-semibold"
+            href="/history"
+            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
           >
-            <Package2 className="h-6 w-6" />
-            <span className="sr-only">Acme Inc</span>
+            <SquareStack className="h-5 w-5" />
+            History
           </Link>
           <Link
-            href="#"
-            className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+            href="/new-data"
+            className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
           >
-            <Home className="h-5 w-5" />
-            Dashboard
+            <DiamondPlus className="h-5 w-5" />
+            New Data
           </Link>
           <Link
-            href="#"
-            className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
+            href="/analytics"
+            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
           >
-            <ShoppingCart className="h-5 w-5" />
-            Orders
-            <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-              6
-            </Badge>
-          </Link>
-          <Link
-            href="#"
-            className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-          >
-            <Package className="h-5 w-5" />
-            Products
-          </Link>
-          <Link
-            href="#"
-            className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-          >
-            <Users className="h-5 w-5" />
-            Customers
-          </Link>
-          <Link
-            href="#"
-            className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-          >
-            <LineChart className="h-5 w-5" />
+            <ChartNetwork className="h-5 w-5" />
             Analytics
           </Link>
+          <Link
+            href="/about"
+            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+          >
+            <UserSquare2 className="h-5 w-5" />
+            About
+          </Link>
         </nav>
-        <div className="mt-auto">
-          <Card>
-            <CardHeader>
-              <CardTitle>Upgrade to Pro</CardTitle>
-              <CardDescription>
-                Unlock all features and get unlimited access to our support
-                team.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Button size="sm" className="w-full">
-                Upgrade
-              </Button>
-            </CardContent>
-          </Card>
+
+        <div className="flex-col  items-center justify-between border-t px-4 py-7 lg:px-6">
+          <UserButton />
+          <ModeToggle />          
         </div>
       </SheetContent>
     </Sheet>

@@ -1,29 +1,25 @@
-import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
-import './globals.css'
-import { ThemeProvider } from "@/components/ui/theme-provider";
+import Sidebar from "@/components/ui/sidebar";
+import { ClerkProvider, SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import MobileNav from "@/components/ui/mobile-nav";
+import "./globals.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
-          <header>
+        <body className="flex">
+          <Sidebar />
+
+          <div className="flex-1 p-4 overflow-y-auto">
             <SignedOut>
-              <SignInButton />
+              <div className="flex justify-center items-center h-full">
+                <SignInButton mode="modal" />
+              </div>
             </SignedOut>
-            <SignedIn>
-            </SignedIn>
-          </header>
-          <main><ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider></main>
+            <SignedIn><MobileNav />{children}</SignedIn>
+          </div>
         </body>
       </html>
     </ClerkProvider>
-  )
+  );
 }
