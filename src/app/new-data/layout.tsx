@@ -1,21 +1,17 @@
-import Sidebar from "@/components/ui/sidebar";
+import React from 'react';
 import "../globals.css";
 
-export const metadata = {
-  title: "New Data",
-  description: "Capture or upload images for food analysis.",
-};
-
-export default function NewDataLayout({
+export default function AboutLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex h-screen">
-      <div className="flex-1 p-4 overflow-y-auto bg-gray-50">
-        {children}
-      </div>
+    <div className="min-h-screen bg-muted/10">
+      <header className="border-b p-4">
+        <h1 className="text-2xl font-bold">New Data</h1>
+      </header>
+      <main className="p-6">{children}</main>      
     </div>
   );
 }

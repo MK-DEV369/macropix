@@ -7,7 +7,6 @@ export default function HistoryPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-primary mb-6">History</h1>
       <p className="text-secondary-foreground mb-4">
         Below is the history of scanned items:
       </p>

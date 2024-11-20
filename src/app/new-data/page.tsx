@@ -36,7 +36,6 @@ export default function NewDataPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-primary mb-6">New Data</h1>
       <p className="text-secondary-foreground mb-4">
         Capture or upload an image for food analysis.
       </p>

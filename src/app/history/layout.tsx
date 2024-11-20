@@ -1,10 +1,6 @@
-import Sidebar from "@/components/ui/sidebar";
+import React from "react";
 import "../globals.css";
-
-export const metadata = {
-  title: "History Page",
-  description: "View the history of analyzed nutrient data.",
-};
+import { Input } from "@/components/ui/input";
 
 export default function HistoryLayout({
   children,
@@ -12,10 +8,16 @@ export default function HistoryLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex h-screen">
-      <div className="flex-1 p-4 overflow-y-auto bg-gray-50">
-        {children}
-      </div>
+    <div className="min-h-screen bg-muted/10">
+      <header className="flex justify-between items-center p-4 border-b bg-white shadow-sm">
+        <h1 className="text-2xl font-bold">History</h1>
+        <Input
+          placeholder="Search for Data"
+          className="w-1/3"
+          aria-label="Search for historical data"
+        />
+      </header>
+      <main className="p-6">{children}</main>
     </div>
   );
 }

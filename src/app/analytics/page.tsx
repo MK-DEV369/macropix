@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 export default function AnalyticsPage() {
   const stats = [
     { label: "Total Scans", value: 150 },
@@ -11,7 +9,6 @@ export default function AnalyticsPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-primary mb-6">Analytics</h1>
       <p className="text-secondary-foreground mb-4">
         Insights and trends from your scanned food data:
       </p>
